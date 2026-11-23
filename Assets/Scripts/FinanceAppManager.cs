@@ -60,6 +60,10 @@ public class FinanceAppManager : MonoBehaviour
     public GameObject panelWarningAlert;
     public Button btnCloseWarningOk;
 
+    public GameObject panelNoMoney;      
+    public Button btnCloseNoMoney;         
+    public GameObject noMoneyResultMessage;  
+
     public GameObject resultGoodPanel;
     public TMP_Text txtGoodSalary;
     public Button btnGoodContinue;
@@ -88,6 +92,13 @@ public class FinanceAppManager : MonoBehaviour
         ShowOnlyPanel(panelWelcome);
         panelNewBill.SetActive(false);
         panelWarningAlert.SetActive(false);
+
+        // NUEVO
+        if (panelNoMoney != null)
+            panelNoMoney.SetActive(false);
+        if (noMoneyResultMessage != null)
+            noMoneyResultMessage.SetActive(false);
+
         inputSalary.interactable = false;
 
         btnStart.onClick.AddListener(OnStartClicked);
@@ -120,6 +131,9 @@ public class FinanceAppManager : MonoBehaviour
             btnCloseNewBill.onClick.AddListener(() => panelNewBill.SetActive(false));
 
         btnCloseWarningOk.onClick.AddListener(() => panelWarningAlert.SetActive(false));
+
+        if (btnCloseNoMoney != null)
+            btnCloseNoMoney.onClick.AddListener(() => panelNoMoney.SetActive(false));
 
         btnGoodContinue.onClick.AddListener(() => ShowOnlyPanel(panelWelcome));
         btnMediumContinue.onClick.AddListener(() => ShowOnlyPanel(panelWelcome));
@@ -264,7 +278,11 @@ public class FinanceAppManager : MonoBehaviour
 
         currentRemainingSalary = initialSalary - spent;
         UpdateSimulatorSalaryUI();
+
+        if (panelNoMoney != null)
+            panelNoMoney.SetActive(currentRemainingSalary <= 0f);
     }
+
 
     void UpdateSimulatorSalaryUI()
     {
@@ -273,6 +291,14 @@ public class FinanceAppManager : MonoBehaviour
 
     void OnSimulatorNextClicked()
     {
+
+        if (currentRemainingSalary < 0f)
+        {
+            if (panelNoMoney != null)
+                panelNoMoney.SetActive(true);
+            return;
+        }
+
         foreach (var card in activeCards)
         {
             if (card.category == 0 && !card.isSelected)
@@ -284,6 +310,13 @@ public class FinanceAppManager : MonoBehaviour
 
         float ratio = (initialSalary > 0f) ? (currentRemainingSalary / initialSalary) : 0f;
         string finalSalaryText = $"Remaining Salary: ${currentRemainingSalary:F2}";
+
+        if (noMoneyResultMessage != null)
+            noMoneyResultMessage.SetActive(currentRemainingSalary <= 0f);
+
+
+        if (panelNoMoney != null)
+            panelNoMoney.SetActive(false);
 
         resultGoodPanel.SetActive(false);
         resultMediumPanel.SetActive(false);
