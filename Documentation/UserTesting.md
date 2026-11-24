@@ -30,10 +30,12 @@ Help: It was pointed out to him that the red ones were the basic ones.
 
 - We decided to modify everything relationated with the questionnaire, which was very long and asked for a lot of details that, in the end, had no real impact on the simulator. We decided to ask the user only about their income and when they receive it, and to specify their major expenses at a later stage.
 
-![Imagen](./imagenes/imagen_08.png)
+![Imagen](./imagenes/imagen_05.png)
 
-![Imagen](./imagenes/imagen_09.png)
+![Imagen](./imagenes/imagen_04.png)
 
-![Imagen](./imagenes/imagen_10.png)
+![Imagen](./imagenes/imagen_03.png)
 
-![Imagen](./imagenes/imagen_11.png)
+![Imagen](./imagenes/imagen_02.png)
+
+![Imagen](./imagenes/imagen_01.png)
