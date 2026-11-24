@@ -18,7 +18,7 @@ These will be the only payments that appear in the simulator once it starts, and
 
 ## Other specifications
 
-- [DesignJustification](documentation/DesignJustification.md)
-- [UserResearch](documentation/UserResearch.md)
-- [UserTesting](documentation/UserTesting.md)
-- [AIUsage](documentation/AIUsage.md)
+- [DesignJustification](./Documentation/DesignJustification.md)
+- [UserResearch](./Documentationn/UserResearch.md)
+- [UserTesting](./Documentation/UserTesting.md)
+- [AIUsage](./Documentation/AIUsage.md)
